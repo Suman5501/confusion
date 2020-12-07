@@ -1,33 +1,23 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import { Navbar, NavbarBrand } from 'reactstrap';
-import Menu from './components/MenuComponent';
-import './App.css';
-import { DISHES } from './shared/dishes';
+import React from 'react';
+import { BrowserRouter as Router,Route,Redirect,Switch } from 'react-router-dom';
+import Users from './user/pages/Users';
+import NewPlace from './places/pages/NewPlace';
 
-class App extends Component {
+const App= () => {
+  return (
+  <Router>
+    <Switch>
+      <Route path = "/" exact>
+        <Users />
+      </Route>
+      <Route path = "/places/new" exact>
+        <NewPlace />
+      </Route>
+      <Redirect to = "/" />
+    </Switch>
+  </Router>
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      dishes: DISHES
-    };
-  }
-    render(){
-    return (
-      <div>
-          <Navbar dark color = "primary">
-            <div className = "container">
-              <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-            </div>
-          </Navbar>
-  
-          <Menu dishes = {this.state.dishes}/>
-      </div>
-    );
-  }
-
-}
+  );
+};
 
 export default App;
