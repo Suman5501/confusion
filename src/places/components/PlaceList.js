@@ -8,7 +8,7 @@ const PlaceList = props =>{
         return(
         <div className = "place-list center">
             <Card>
-               <h2>No Place found.</h2>
+               <h2>No Place found.Create one??</h2>
                <button>Share Place</button>
             </Card>
         </div>);
